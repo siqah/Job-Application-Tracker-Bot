@@ -1,0 +1,38 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Database
+database/*.db
+database/*.sqlite
+database/*.sqlite3
+
+# Outputs
+outputs/screenshots/*.png
+outputs/reports/*.html
+outputs/reports/*.pdf
+outputs/reports/*.xlsx
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Playwright
+.playwright/
+playwright-report/
+test-results/
+
+# Logs
+*.log
