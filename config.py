@@ -16,9 +16,9 @@ TEMPLATES_DIR = BASE_DIR / "templates"
 # Job Search Criteria
 JOB_CRITERIA = {
     "keywords": ["Python Developer", "Reactjs Developer", "Software Engineer", "Fullstack Developer", "Fullstack Engineer", "Frontend Developer"],
-    "locations": ["Remote", "New York", "San Francisco"],
+    "locations": ["Remote", "Nairobi", "Kenya", "Mombasa", "Nakuru"],
     "experience_level": ["Entry Level", "Mid Level", "Senior Level"],
-    "salary_range": {"min": 40000, "max": 200000},
+    "salary_range": {"min": 30000, "max": 200000},
     "job_types": ["Full-time", "Contract", "Part-time", "Internship", "Freelance", "Temporary", "Seasonal", "Hourly", "Commission", "Piecework", "Consultant", "Co-op", "Apprenticeship", "Trainee", "Volunteer", "Other"],
     "blacklist_companies": ["BadCompany Inc", "Exploitative Corp"]
 }

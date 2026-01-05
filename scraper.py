@@ -23,7 +23,7 @@ class JobScraper:
             try:
                 browser = p.chromium.launch(headless=self.headless, slow_mo=500)
                 context = browser.new_context(
-                    viewport={'width': 1920, 'height': 1080},
+                    viewport={'width': 2560, 'height': 1600},
                     user_agent='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
                 )
                 page = context.new_page()
