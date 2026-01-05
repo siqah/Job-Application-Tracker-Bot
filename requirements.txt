@@ -1,7 +1,18 @@
+# Core dependencies
 playwright==1.40.0
 pandas==2.0.3
 openpyxl==3.1.2
 python-dotenv==1.0.0
 schedule==1.2.0
 jinja2==3.1.2
+
+# Logging and UI
+rich==13.7.0
+colorlog==6.8.0
+
+# Retry logic and validation
+tenacity==8.2.3
+pydantic==2.5.3
+
+# Testing
 pytest==7.4.3

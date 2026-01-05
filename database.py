@@ -1,6 +1,9 @@
 import sqlite3
 from datetime import datetime, timedelta
 from config import DB_PATH
+from logger import get_logger
+
+logger = get_logger(__name__)
 
 class ApplicationDatabase:
     def __init__(self):
@@ -58,7 +61,14 @@ class ApplicationDatabase:
         )
         ''')
         
+        # Create indexes for performance
+        cursor.execute('CREATE INDEX IF NOT EXISTS idx_job_url ON applications(job_url)')
+        cursor.execute('CREATE INDEX IF NOT EXISTS idx_status ON applications(application_status)')
+        cursor.execute('CREATE INDEX IF NOT EXISTS idx_date_applied ON applications(date_applied)')
+        cursor.execute('CREATE INDEX IF NOT EXISTS idx_followup_date ON applications(follow_up_date)')
+        
         self.conn.commit()
+        logger.debug("Database tables and indexes created successfully")
     
     def add_application(self, job_data):
         """Add a new job application to the database"""
@@ -83,9 +93,14 @@ class ApplicationDatabase:
             ))
             
             self.conn.commit()
+            logger.debug(f"Added application: {job_data.get('title')} at {job_data.get('company')}")
             return cursor.lastrowid
+        except sqlite3.IntegrityError:
+            # Job already exists (duplicate URL)
+            logger.debug(f"Job already in database: {job_data.get('url')}")
+            return None
         except Exception as e:
-            print(f"Error adding application: {e}")
+            logger.error(f"Error adding application: {e}")
             return None
     
     def update_status(self, job_url, status, notes=""):
